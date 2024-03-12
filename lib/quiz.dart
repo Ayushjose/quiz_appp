@@ -25,10 +25,18 @@ class _QuestionsState extends State<Questions> {
   ];
 
   int q_no=0;
+  String result='correct answer';
   void next(){
     if(q_no <_question.length) {
       q_no++;
     }
+
+
+
+  }
+  void check(bool answer) {
+    if (_question[q_no].ans == answer)
+      result = 'correct answer';
 
 
 
@@ -56,15 +64,27 @@ class _QuestionsState extends State<Questions> {
             SizedBox(height: 20,),
             TextButton(onPressed: (){
               setState(() {
+                check(true);
                 next();
               });
             }, child: Text('YES' ,style: TextStyle(fontSize: 15,color: Colors.black),),
                 style: TextButton.styleFrom(backgroundColor: Colors.green,padding: EdgeInsets.all(20))
             ),
             SizedBox(height: 20,),
-            TextButton(onPressed: null, child: Text('NO',style: TextStyle(fontSize: 15,color: Colors.black),),
+            TextButton(onPressed: (){
+              setState(() {
+                check(false);
+                next();
+              });
+            }, child: Text('NO',style: TextStyle(fontSize: 15,color: Colors.black),),
                 style: TextButton.styleFrom(backgroundColor: Colors.red,padding: EdgeInsets.all(20))
             ),
+             Container(
+               child: Row(
+                 mainAxisAlignment:
+               )
+
+
           ],
           )
       ),
